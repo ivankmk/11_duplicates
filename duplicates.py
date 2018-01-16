@@ -26,10 +26,10 @@ def get_duplications(files):
 
 if __name__ == '__main__':
     try:
-        data = get_list_of_files(sys.argv[1])
+        files_in_path = get_list_of_files(sys.argv[1])
     except IndexError:
         sys.exit('Please, enter correct path.')
-    duplicated_result = get_duplications(data)
+    duplicated_result = get_duplications(files_in_path)
     print('Hello, below files which at least duplicated:')
     print('-'*40)
     for filename, _, count in duplicated_result:
