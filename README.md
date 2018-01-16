@@ -1,4 +1,4 @@
-![](https://gph.is/2p96d0f)
+![](https://media.giphy.com/media/l4FGBILjNaCtLious/giphy.gif)
 
 # Anti-Duplicator
 
