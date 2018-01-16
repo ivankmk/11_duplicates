@@ -28,4 +28,4 @@ The same with Windows environment;
 
 The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
 
-![](https://media.giphy.com/media/l4FGBILjNaCtLious/giphy.gif)
+![](https://media.giphy.com/media/l4FGBILjNaCtLious/giphy.gif?style=centerme)
