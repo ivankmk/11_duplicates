@@ -1,4 +1,3 @@
-![](https://media.giphy.com/media/l4FGBILjNaCtLious/giphy.gif)
 
 # Anti-Duplicator
 
@@ -28,3 +27,5 @@ The same with Windows environment;
 # Project Goals
 
 The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+
+![](https://media.giphy.com/media/l4FGBILjNaCtLious/giphy.gif)
