@@ -15,25 +15,21 @@ def get_locations(directory):
 
 
 def get_duplications(all_files):
-    duplications = []
-    for (file_name, size), paths in all_files.items():
-        if len(paths) > 1:
-            duplications.append((file_name, size, paths))
-    return duplications
+    return [((file_name, size), paths) for (file_name, size),
+            paths in all_files.items() if len(paths) > 1]
 
 
 if __name__ == '__main__':
     try:
         if os.path.exists(sys.argv[1]):
-            all_files = get_locations(sys.argv[1])
-            duplicated_files = get_duplications(all_files)
-            print('Hello, below files which at least duplicated:')
+            duplicated_files = get_duplications(get_locations(sys.argv[1]))
+            print('\nHello, below files which at least duplicated:')
             print('---------------------------------------------')
-            for file_name, size, paths in duplicated_files:
+            for (file_name, size), paths in duplicated_files:
                 print(file_name)
                 for path in paths:
                     print('    ', path)
         else:
             print('Folder path not exist.')
     except IndexError:
-        sys.exit('Please, enter correct path.')
+        sys.exit('Please, enter the path.')
