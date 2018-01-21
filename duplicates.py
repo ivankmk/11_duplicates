@@ -25,14 +25,11 @@ def get_duplications(all_files):
 
 if __name__ == '__main__':
     try:
-        all_files = get_locations(sys.argv[1])
-        duplicated_files = get_duplications(all_files)
+        duplicated_files = get_duplications(get_locations(sys.argv[1]))
         print('\nHello, below files which at least duplicated:')
         print('---------------------------------------------')
         for (file_name, size), paths in duplicated_files:
-            print(file_name)
-            for path in paths:
-                print('    ', path)
+            print(file_name, paths)
     except IndexError:
         sys.exit('Please, enter the path.')
     except AttributeError:

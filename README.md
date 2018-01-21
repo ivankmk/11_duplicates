@@ -16,9 +16,8 @@ $ python duplicates.py <directory> # possibly requires call of python3 executive
 ---------------------------------------------
 Hello, below files which at least duplicated:
 ---------------------------------------------
-test.txt
-     /Users/ivan/3.Hackerrank/test.txt
-     /Users/ivan/3.Hackerrank/folder/test.txt
+test.txt ['/Users/ivan/3.Hackerrank/test.txt', '/Users/ivan/3.Hackerrank/folder/test.txt']
+aza.txt ['/Users/ivan/3.Hackerrank/aza.txt', '/Users/ivan/3.Hackerrank/folder/aza.txt']
 ```
 
 The same with Windows environment;
