@@ -25,16 +25,15 @@ def get_duplications(all_files):
 
 if __name__ == '__main__':
     try:
-        if get_locations(sys.argv[1]) is None:
-            print('Path not exist.')
-        else:
-            all_files = get_locations(sys.argv[1])
-            duplicated_files = get_duplications(all_files)
-            print('\nHello, below files which at least duplicated:')
-            print('---------------------------------------------')
-            for (file_name, size), paths in duplicated_files:
-                print(file_name)
-                for path in paths:
-                    print('    ', path)
+        all_files = get_locations(sys.argv[1])
+        duplicated_files = get_duplications(all_files)
+        print('\nHello, below files which at least duplicated:')
+        print('---------------------------------------------')
+        for (file_name, size), paths in duplicated_files:
+            print(file_name)
+            for path in paths:
+                print('    ', path)
     except IndexError:
         sys.exit('Please, enter the path.')
+    except AttributeError:
+        sys.exit('Filepath is not correct.')
