@@ -19,15 +19,13 @@ def get_duplications(all_files):
     for (file_name, size), paths in all_files.items():
         if len(paths) > 1:
             duplications.append((file_name, size, paths))
-
     return duplications
 
 
 if __name__ == '__main__':
     try:
         if os.path.exists(sys.argv[1]):
-            folder_path = sys.argv[1]
-            all_files = get_locations(folder_path)
+            all_files = get_locations(sys.argv[1])
             duplicated_files = get_duplications(all_files)
             print('---------------------------------------------')
             print('Hello, below files which at least duplicated:')
