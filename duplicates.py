@@ -27,7 +27,6 @@ if __name__ == '__main__':
         if os.path.exists(sys.argv[1]):
             all_files = get_locations(sys.argv[1])
             duplicated_files = get_duplications(all_files)
-            print('---------------------------------------------')
             print('Hello, below files which at least duplicated:')
             print('---------------------------------------------')
             for file_name, size, paths in duplicated_files:
