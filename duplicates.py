@@ -1,37 +1,37 @@
 import os
 import sys
+import collections
 from collections import Counter
 
 
-def get_list_of_files(directory):
-    all_files = []
-    for root, dirs, files in os.walk(directory):
-
-        if '/.' not in root:
-            for file_data in files:
-                path = os.path.join(root, file_data)
-                if '/.' not in path:
-                    size = os.stat(path).st_size
-                    all_files.append((path.split('/')[-1], size))
-    return all_files
+def get_files(directory):
+    file_locations = collections.defaultdict(list)
+    for rootdir, dirs, file_names, in os.walk(directory):
+        for file_name in file_names:
+            path_to_current_file = os.path.join(rootdir, file_name)
+            file_size = os.path.getsize(path_to_current_file)
+            file_locations[(file_name, file_size)].append(path_to_current_file)
+    return file_locations
 
 
-def get_duplications(files):
-    duplicated_files = []
-    files_with_counter = Counter(files)
-    for name_size, count in files_with_counter.items():
-        if count > 1:
-            duplicated_files.append((name_size[0], name_size[1], count))
-    return duplicated_files
+def get_duplications(all_files):
+    duplications = []
+    for file_name_and_size, paths in all_files.items():
+        if len(paths) > 1:
+            duplications.append(file_name_and_size)
+    return duplications
+
 
 if __name__ == '__main__':
     try:
-        files_in_path = get_list_of_files(sys.argv[1])
+        all_files = get_files(sys.argv[1])
+        duplicated_files = get_duplications(all_files)
+        print('---------------------------------------------')
+        print('Hello, below files which at least duplicated:')
+        print('---------------------------------------------')
+        for file_name in duplicated_files:
+            print(file_name[0])
+            for path in all_files[file_name]:
+                print('  ..', path)
     except IndexError:
         sys.exit('Please, enter correct path.')
-    duplicated_result = get_duplications(files_in_path)
-    print('Hello, below files which at least duplicated:')
-    print('-'*40)
-    for filename, _, count in duplicated_result:
-        print(filename, ': ', count)
-    print('-'*40)
