@@ -20,23 +20,20 @@ def get_duplications(all_files):
             paths in all_files.items() if len(paths) > 1]
 
 
-def check_path(directory):
-    if os.path.exists(directory):
-        return directory
-    else:
-        return None
+def print_duplications(duplicated_files):
+    print('\nHello, below files which at least duplicated:')
+    print('---------------------------------------------')
+    for (file_name, size), paths in duplicated_files:
+        print(file_name)
+        for path in paths:
+            print('   ', path)
+
 
 if __name__ == '__main__':
-    try:
-        path = check_path(sys.argv[1])
-        duplicated_files = get_duplications(get_file_locations(path))
-        print('\nHello, below files which at least duplicated:')
-        print('---------------------------------------------')
-        for (file_name, size), paths in duplicated_files:
-            print(file_name)
-            for path in paths:
-                print('   ', path)
-    except IndexError:
+    if len(sys.argv) < 2:
         sys.exit('Please, enter the path.')
-    except NameError:
-        sys.exit('Please use correct filepath.')
+    path = sys.argv[1]
+    if not os.path.exists(path):
+        sys.exit('Please, enter the correct path.')
+    duplicated_files = get_duplications(get_file_locations(sys.argv[1]))
+    print_duplications(duplicated_files)
