@@ -19,6 +19,7 @@ def get_duplications(all_files):
     return [((file_name, size), paths) for (file_name, size),
             paths in all_files.items() if len(paths) > 1]
 
+
 def check_path(directory):
     if os.path.exists(directory):
         return directory
