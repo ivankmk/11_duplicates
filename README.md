@@ -13,11 +13,14 @@ Duplicated means - at least two files with the same name and size.
 
 ```bash
 $ python duplicates.py <directory> # possibly requires call of python3 executive instead of just python
----------------------------------------------
 Hello, below files which at least duplicated:
 ---------------------------------------------
-test.txt ['/Users/ivan/3.Hackerrank/test.txt', '/Users/ivan/3.Hackerrank/folder/test.txt']
-aza.txt ['/Users/ivan/3.Hackerrank/aza.txt', '/Users/ivan/3.Hackerrank/folder/aza.txt']
+aza.txt
+    /Users/ivan/3.Hackerrank/aza.txt
+    /Users/ivan/3.Hackerrank/folder/aza.txt
+test.txt
+    /Users/ivan/3.Hackerrank/test.txt
+    /Users/ivan/3.Hackerrank/folder/test.txt
 ```
 
 The same with Windows environment;
