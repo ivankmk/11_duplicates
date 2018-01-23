@@ -1,7 +1,6 @@
 import sys
 import collections
 import os.path
-from collections import Counter
 
 
 def get_file_locations(directory):
